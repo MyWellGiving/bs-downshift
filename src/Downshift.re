@@ -42,7 +42,7 @@ type rootPropsOptions = {. "refKey": string};
 
 type itemPropsOptions = {
   .
-  "index": option(int),
+  "index": Js.Nullable.t(int),
   "item": any
 };
 

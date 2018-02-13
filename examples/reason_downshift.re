@@ -102,7 +102,7 @@ module BasicAutocomplete = {
                                             t,
                                             {
                                               "item": Downshift.toAny(item),
-                                              "index": Some(0)
+                                              "index": Js.Nullable.return(0)
                                             }
                                           )
                                         ),
