@@ -1,6 +1,6 @@
 {
   "name": "bs-downshift",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "BuckleScript bindings for Downshift",
   "license": "MIT",
   "author": "Nicola Molinari <me@emmenko.org> (http://emmenko.org)",
@@ -16,16 +16,18 @@
     "clean": "bsb -clean-world",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "downshift": "1.25.0"
+  },
   "peerDependencies": {
-    "bs-platform": "^2.1.0",
-    "downshift": "^1.22.5"
+    "bs-platform": "^3.0.0"
   },
   "devDependencies": {
-    "bs-platform": "^2.1.0",
-    "downshift": "^1.22.5",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "reason-react": "^0.3.0"
+    "bs-platform": "^3.0.0",
+    "downshift": "1.25.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "reason-react": "^0.4.1"
   },
   "keywords": ["BuckleScript", "Downshift", "React", "Reason"]
 }

@@ -1,7 +1,5 @@
 type any;
 
-let optionBoolToOptionJsBoolean: option(bool) => option(Js.boolean);
-
 external toAny : 'a => any = "%identity";
 
 external toJsObj : any => Js.t({..}) = "%identity";
@@ -53,7 +51,7 @@ module ControllerStateAndHelpers: {
   external getInputProps :
     (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
     "";
-  [@bs.send] external getItemProps : (t, itemPropsOptions) => any = "";
+  [@bs.send] external extGetItemProps : (t, itemPropsOptions) => any = "";
   [@bs.send]
   external itemPropsOptions : (t, ~options: itemPropsOptions) => any = "";
   [@bs.send] external openMenu : (t, ~cb: cb=?, unit) => unit = "";
@@ -92,10 +90,12 @@ module ControllerStateAndHelpers: {
   [@bs.get] external inputValue : t => Js.Nullable.t(string) = "";
   [@bs.get] external isOpen : t => bool = "";
   [@bs.get] external selectedItem : t => item = "";
+  let getItemProps: (t, ~item: any, ~index: int=?, unit) => any;
 };
 
 type stateChangeOptions = {
   .
+  "type": string,
   "highlightedIndex": int,
   "inputValue": string,
   "isOpen": bool,
@@ -141,3 +141,6 @@ let make:
     ReasonReact.noRetainedProps,
     ReasonReact.actionless
   );
+
+[@bs.module "downshift"]
+external resetIdCounter : unit => unit = "resetIdCounter";
